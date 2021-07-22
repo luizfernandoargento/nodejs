@@ -1,0 +1,13 @@
+Instalar módulos com NPM:
+    1- npm init -y 
+// Inicializar o pacote NPM
+
+    2- Alterar no arquivo "package.json" a variável "name" para, exemplo, "http-teste"
+pois a função "http" já está sendo usada. 
+
+    3- npm i nodemon -D
+// Baixar módulos Node (node_modules) e suas dependências, no modo desenvolvedor.
+// nodemon monitora o servidor e atualiza todas as mudanças em tempo real assim que salvar o arquivo.
+
+    4- Ao executar "npm start", executa o comando descrito em "start" no "package.json",
+no caso "node server.js". Temos que alterar para "nodemon server.js" para monitorar o servidor.
