@@ -1,6 +1,8 @@
-const { createCipher } = require('crypto')
 const os = require('os')
 // Importar o comando "os" do NODE.
+const log = require('./logger');
+// Importa função do arquivo "logger.js"
+// Nesse caso precisa usar no endereço "./", pois não é uma função nativa.
 
 // console.log(os.platform())
 // Quando executado no console, é o mesmo que usar no terminal "node os.platform()"
@@ -30,6 +32,9 @@ setInterval(() => {
     console.log("   === PC STATS ===");
     console.table(stats);
     // Mostra no console em forma de tabela.
+
+    log(`${JSON.stringify(stats)}\n`)
+    // Converte o array "stats" em JSON, pulando uma linha em seguida
 
 }, 1000)
 // Arrow Function resume a função anônima "function() {...}" para "() => {...}"
