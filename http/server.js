@@ -1,6 +1,7 @@
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
+// Módulos do Node
 
 http.createServer((req, res) => {
 // Cria um servidor escutando a porta 5000
@@ -40,5 +41,5 @@ http.createServer((req, res) => {
     )
 
 }).listen(5000, () => console.log('Server is running'))
-// Pelo navegador podemos acessar o "localhost:5000" e aparecerá a mensagem "Hi".
+// Pelo navegador podemos acessar o "localhost:5000".
 // Ao sair do Node no terminal, encerra-se o servidor.
