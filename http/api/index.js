@@ -29,7 +29,8 @@ http.createServer((req, res) => {
         'Access-Control-Allow-Origin': '*'
     })
     // Permite ao navegador acessar outras portas (do 5000 para o 3000)
-    // No navegador/console digite "fetch("http://localhost:3000").then((data) => data.json()).then((data) => console.log(data))"
+    // Você pode testar no navegador/console, digite:
+    //"fetch("http://localhost:3000").then((data) => data.json()).then((data) => console.log(data))"
 
     // Mostrar todos
     if(!name || !url)

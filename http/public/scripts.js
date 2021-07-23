@@ -2,6 +2,18 @@ const ul = document.querySelector("ul")
 const input = document.querySelector("input")
 const form = document.querySelector('form')
 
+async function load() {
+    const res = await fetch("http://localhost:3000").then((data) => data.json())
+    // "await" = aguarda fetch terminar. A função DEVE ser assíncrona (async)
+    // Aguarda promessa (fetch) ser executada e armazenada na variável "res"
+
+    res.urls.map(({ name, url }) => addElement({ name, url }))
+    // Adiciona elemento por elemento na lista usando a função addElement.
+    // "map" = separa item a item de um array/objeto
+    // Podemos usarm também: res.urls.map(urls => addElement(urls))
+}
+
+load()
 
 function addElement({ name, url }) {
     const li = document.createElement('li')
@@ -21,8 +33,9 @@ function addElement({ name, url }) {
 }
 
 function removeElement(el) {
-    if (confirm('Tem certeza que deseja deletar?'))
+    if (confirm('Tem certeza que deseja deletar?')) {
         el.parentNode.remove()
+    }
 }
 
 form.addEventListener("submit", (event) => {
@@ -30,15 +43,15 @@ form.addEventListener("submit", (event) => {
 
     let { value } = input
 
-    if (!value) 
+    if (!value)
         return alert('Preencha o campo')
 
     const [name, url] = value.split(",")
 
-    if (!url) 
+    if (!url)
         return alert('formate o texto da maneira correta')
 
-    if (!/^http/.test(url)) 
+    if (!/^http/.test(url))
         return alert("Digite a url da maneira correta")
 
     addElement({ name, url })
